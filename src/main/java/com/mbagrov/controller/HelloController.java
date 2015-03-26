@@ -1,6 +1,8 @@
 package com.mbagrov.controller;
-import com.mbagrov.dto.Person;
-import com.mbagrov.repository.api.PersonRepository;
+import com.mbagrov.dto.Post;
+import com.mbagrov.dto.User;
+import com.mbagrov.service.api.PostService;
+import com.mbagrov.service.api.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,14 @@ public class HelloController {
     private static final Logger logger = LoggerFactory
             .getLogger(HelloController.class);
 
+    private UserService userService;
+    private PostService postService;
+
     @Autowired
-    private PersonRepository personRepository;
+    public HelloController(UserService userService, PostService postService) {
+        this.userService = userService;
+        this.postService = postService;
+    }
 
     @RequestMapping(value =  {"/", "home", "index"}, method = RequestMethod.GET)
     public String hello() {
@@ -32,15 +40,16 @@ public class HelloController {
         return "home";
     }
 
-    @RequestMapping(value = "home2", method = RequestMethod.GET)
+    @RequestMapping(value = "secret", method = RequestMethod.GET)
     public ModelAndView hello2() {
-      //  List<Person> persons = personRepository.findAll();
+        logger.debug("Received request to show secret page");
+        List<User> users = userService.findAll();
+        List<Post> posts = postService.findAll();
         ModelAndView modelAndView = new ModelAndView("secret");
-      //  modelAndView.addObject("persons", persons);
+        modelAndView.addObject("users", users);
+        modelAndView.addObject("posts", posts);
 
         return modelAndView;
-       // model.addAttribute("persons", persons);
-       // return "home2";
     }
 
     @RequestMapping(value = "login", method = {RequestMethod.GET, RequestMethod.POST})
