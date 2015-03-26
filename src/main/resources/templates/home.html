@@ -7,16 +7,41 @@
 </head>
 <body>
     <div id="container">
-        <div id="header" th:include="standard/header">
+        <div  th:include="standard/header">
         </div>
 
-        <div id="sidebar" th:include="standard/sidebar">
+        <div th:if="${#httpServletRequest.remoteUser != null}" th:include="standard/logout">
+            <div xmlns:th="http://www.thymeleaf.org" id="login">
+            <form name="f" th:action="@{/login}" method="post">
+
+                <table>
+                    <tr>
+                        <td>
+                            <span th:inline="text">User: [[${#httpServletRequest.remoteUser}]]</span>
+                        </td>
+                        <td>
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="Sign Out"/>
+                            </form>
+                            <!--<div th:if="${param.logout}">
+                                You have been logged out.
+                            </div>-->
+                        </td>
+                    </tr>
+                </table>
+
+
+            </form>
+            </div>
+        </div>
+
+        <div th:include="standard/sidebar">
 
         </div>
         <div id="content">
-
+            Welcome to main page
         </div>
-        <div id="footer" th:include="standard/footer">
+        <div th:include="standard/footer">
 
         </div>
     </div>

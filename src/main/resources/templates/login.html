@@ -8,31 +8,52 @@
 </head>
 <body>
     <div id="container">
-        <div id="header" th:include="standard/header">
+        <div th:include="standard/header">
         </div>
 
-        <div id="sidebar" th:include="standard/sidebar">
+
+
+        <div th:include="standard/sidebar">
 
         </div>
         <div id="content">
 
-            <div th:if="${param.error}">
+            <!--<div th:if="${param.error}">
                 Invalid username and password.
-            </div>
+            </div>-->
 
-            <div th:if="${param.logout}">
+            <!--<div th:if="${param.logout}">
                 You have been logged out.
-            </div>
+            </div>-->
 
             <form name="f" th:action="@{/login}" method="post">
-                <div><label>User Name: <input type="text" name="username"/> </label></div>
-                <div><label>Password: <input type="password" name="password"/></label></div>
-                <div><input type="submit" value="Sign in"/></div>
+                <table>
+                    <tr>
+                        <td>
+                            User Name:
+                        </td>
+                        <td>
+                            <label><input type="text" name="username"/> </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Password:
+                        </td>
+                        <td>
+                            <label><input type="password" name="password"/></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Sign in"/>
+                        </td>
+                    </tr>
+                </table>
             </form>
-            <br/>
 
         </div>
-        <div id="footer" th:include="standard/footer">
+        <div th:include="standard/footer">
 
         </div>
     </div>

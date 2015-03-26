@@ -1,0 +1,21 @@
+<div xmlns:th="http://www.thymeleaf.org" id="login">
+
+    <div>
+    <table class="logout_form">
+        <tr>
+            <td>
+                <span th:inline="text">User: [[${#httpServletRequest.remoteUser}]]</span>
+            </td>
+            <td>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out"/>
+                </form>
+                <!--<div th:if="${param.logout}">
+                    You have been logged out.
+                </div>-->
+            </td>
+        </tr>
+    </table>
+    </div>
+
+</div>

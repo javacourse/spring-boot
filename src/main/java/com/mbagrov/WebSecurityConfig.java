@@ -33,12 +33,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        /*
-        authenticationManagerBuilder
+
+        /*authenticationManagerBuilder
                 .inMemoryAuthentication()
                     .withUser("user").password("password").roles("USER").and()
-                    .withUser("admin").password("password").roles("USER", "ADMIN");
-                    */
+                    .withUser("admin").password("password").roles("USER", "ADMIN");*/
+
         authenticationManagerBuilder
                 .jdbcAuthentication()
                 .dataSource(dataSource)

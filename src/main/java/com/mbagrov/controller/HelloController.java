@@ -1,6 +1,8 @@
 package com.mbagrov.controller;
 import com.mbagrov.dto.Person;
 import com.mbagrov.repository.api.PersonRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,19 +20,23 @@ import java.util.List;
 @RequestMapping(value = "/")
 public class HelloController {
 
+    private static final Logger logger = LoggerFactory
+            .getLogger(HelloController.class);
+
     @Autowired
     private PersonRepository personRepository;
 
     @RequestMapping(value =  {"/", "home", "index"}, method = RequestMethod.GET)
     public String hello() {
+        logger.debug("Received request to show main page");
         return "home";
     }
 
     @RequestMapping(value = "home2", method = RequestMethod.GET)
     public ModelAndView hello2() {
-        List<Person> persons = personRepository.findAll();
+      //  List<Person> persons = personRepository.findAll();
         ModelAndView modelAndView = new ModelAndView("home2");
-        modelAndView.addObject("persons", persons);
+      //  modelAndView.addObject("persons", persons);
 
         return modelAndView;
        // model.addAttribute("persons", persons);
