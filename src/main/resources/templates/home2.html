@@ -15,7 +15,14 @@
 
         </div>
         <div id="content">
-        Secret page!!!!
+            <table>
+                <tr th:each="person : ${persons}">
+                    <td th:text = "${person.id}"></td>
+                    <td th:text = "${person.firstName}"></td>
+                    <td th:text = "${person.lastName}"></td>
+                </tr>
+            </table>
+
             <!--<a th:href="@{/logout}">Logout</a>-->
 
             <!-- <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>-->
