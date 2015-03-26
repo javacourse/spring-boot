@@ -11,9 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/")
 public class HelloController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value =  {"/", "home", "index"}, method = RequestMethod.GET)
     public String hello() {
         return "home";
     }
 
+    @RequestMapping(value = "home2", method = RequestMethod.GET)
+    public String hello2() {
+        return "home2";
+    }
+
+    @RequestMapping(value = "login", method = {RequestMethod.GET, RequestMethod.POST})
+    public String login() {
+        return "login";
+    }
 }
