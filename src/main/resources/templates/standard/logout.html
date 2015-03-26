@@ -1,6 +1,6 @@
-<div xmlns:th="http://www.thymeleaf.org" id="login">
+<div xmlns:th="http://www.thymeleaf.org">
 
-    <div>
+    <div th:if="${#httpServletRequest.remoteUser != null}" id="login">
     <table class="logout_form">
         <tr>
             <td>

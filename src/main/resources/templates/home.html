@@ -10,7 +10,7 @@
         <div  th:include="standard/header">
         </div>
 
-        <div th:if="${#httpServletRequest.remoteUser != null}" th:include="standard/logout">
+        <div th:include="standard/logout">
             <div xmlns:th="http://www.thymeleaf.org" id="login">
             <form name="f" th:action="@{/login}" method="post">
 

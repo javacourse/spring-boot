@@ -35,7 +35,7 @@ public class HelloController {
     @RequestMapping(value = "home2", method = RequestMethod.GET)
     public ModelAndView hello2() {
       //  List<Person> persons = personRepository.findAll();
-        ModelAndView modelAndView = new ModelAndView("home2");
+        ModelAndView modelAndView = new ModelAndView("secret");
       //  modelAndView.addObject("persons", persons);
 
         return modelAndView;
