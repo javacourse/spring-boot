@@ -5,7 +5,10 @@
         <a th:href="@{/home}">Home</a>
     </li>
     <li>
-        <a th:href="@{/secret}">Secret page</a>
+        <a th:href="@{/blog}">Blog</a>
+    </li>
+    <li>
+        <a th:href="@{/post/add}">Add post</a>
     </li>
 
     <li th:if="${#httpServletRequest.isUserInRole('ROLE_ADMIN')}">

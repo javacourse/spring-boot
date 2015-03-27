@@ -11,4 +11,6 @@ public interface IPostService {
 
     public List<Post> findAll();
 
+    public void saveOrUpdate(Post post);
+
 }

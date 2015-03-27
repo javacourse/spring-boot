@@ -1,20 +1,18 @@
 <div xmlns:th="http://www.thymeleaf.org">
-    <form th:action="@{/post/modify}" method="post">
+    <form th:action="@{/post/add}" method="post" th:object="${post}">
     <table>
         <tr>
             <td>
                 Topic:
             </td>
             <td>
-                <input type="text" name="topic" size="10"/>
+                <input type="text" name="topic" size="18"/>
             </td>
         </tr>
         <tr>
-            <td>
-                Message:
-            </td>
-            <td>
-                <textarea name="text" rows="10" cols="20">
+
+            <td colspan="2">
+                <textarea name="text" rows="10" cols="25">
 
                 </textarea>
             </td>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Home page</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+    <div id="container">
+        <div th:include="standard/header">
+        </div>
+
+        <div th:include="standard/logout">
+        </div>
+
+        <div th:include="standard/sidebar">
+        </div>
+
+        <div id="content">
+
+            <!--<div th:if="${posts.size() != 0}">-->
+
+                <div th:each="post : ${posts}" class="post">
+                    <span th:text = "${post.date}"></span>
+                    <span th:text = "${post.user.getUsername()}"> </span><br/>
+                    <span th:text = "${post.topic}"></span> <br/><br/>
+                    <span th:text = "${post.text}"></span> <br/>
+                </div>
+
+            </div>
+
+            <!-- <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>-->
+        <!--</div>-->
+
+        <div th:include="standard/footer">
+        </div>
+
+    </div>
+</body>
+</html>

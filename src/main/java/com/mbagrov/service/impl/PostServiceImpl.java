@@ -21,4 +21,9 @@ public class PostServiceImpl implements IPostService {
     public List<Post> findAll() {
         return postRepository.findAll();
     }
+
+    @Override
+    public void saveOrUpdate(Post post) {
+        postRepository.saveOrUpdate(post);
+    }
 }

@@ -2,7 +2,7 @@
 body {
     magrin: 0 auto;
     background-color: lightgray;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 #container {
@@ -59,6 +59,16 @@ body {
 #content {
     margin-top: 5px;
     margin-left: 210px;
+    border: royalblue solid 2px;
+    padding: 5px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    color: royalblue;
+}
+
+.post {
+    margin-top: 5px;
     border: royalblue solid 2px;
     padding: 5px;
     -webkit-border-radius: 8px;

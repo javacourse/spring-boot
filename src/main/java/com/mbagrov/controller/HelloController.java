@@ -1,8 +1,6 @@
 package com.mbagrov.controller;
-import com.mbagrov.dto.User;
-import com.mbagrov.repository.api.IUserRepository;
-import com.mbagrov.repository.crud.PostCrudRepository;
-import com.mbagrov.repository.crud.UserCrudRepository;
+
+import com.mbagrov.dto.Post;
 import com.mbagrov.service.api.IPostService;
 import com.mbagrov.service.api.IUserService;
 import org.slf4j.Logger;
@@ -12,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 /**
  * Created by Odour on 25.03.2015.
@@ -42,13 +38,13 @@ public class HelloController {
         return "home";
     }
 
-    @RequestMapping(value = "secret", method = RequestMethod.GET)
+    @RequestMapping(value = "/blog", method = RequestMethod.GET)
     public ModelAndView hello2() {
         logger.debug("Received request to show secret page");
-        Iterable users = userService.findAll();
+
         Iterable posts = postService.findAll();
-        ModelAndView modelAndView = new ModelAndView("secret");
-        modelAndView.addObject("users", users);
+        ModelAndView modelAndView = new ModelAndView("blog");
+
         modelAndView.addObject("posts", posts);
 
         return modelAndView;

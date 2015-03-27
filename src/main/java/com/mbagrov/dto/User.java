@@ -1,5 +1,8 @@
 package com.mbagrov.dto;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -28,7 +31,8 @@ public class User implements Serializable {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @OneToMany(targetEntity = Post.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(targetEntity = Post.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Post> posts;
 
     public User() {
