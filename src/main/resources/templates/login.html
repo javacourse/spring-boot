@@ -15,17 +15,9 @@
             </div>
 
         <div th:include="standard/sidebar">
-
         </div>
+
         <div id="content">
-
-            <!--<div th:if="${param.error}">
-                Invalid username and password.
-            </div>-->
-
-            <!--<div th:if="${param.logout}">
-                You have been logged out.
-            </div>-->
 
             <form name="f" th:action="@{/login}" method="post">
                 <table>
@@ -54,9 +46,10 @@
             </form>
 
         </div>
-        <div th:include="standard/footer">
 
+        <div th:include="standard/footer">
         </div>
+
     </div>
 </body>
 </html>

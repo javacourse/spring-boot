@@ -1,0 +1,29 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <form th:action="@{/post/modify}" method="post">
+    <table>
+        <tr>
+            <td>
+                Topic:
+            </td>
+            <td>
+                <input type="text" name="topic" size="10"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Message:
+            </td>
+            <td>
+                <textarea name="text" rows="10" cols="20">
+
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit"/>
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>

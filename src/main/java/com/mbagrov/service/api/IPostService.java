@@ -5,9 +5,9 @@ import com.mbagrov.dto.Post;
 import java.util.List;
 
 /**
- * Created by Odour on 26.03.2015.
+ * Created by Odour on 27.03.2015.
  */
-public interface PostService {
+public interface IPostService {
 
     public List<Post> findAll();
 
