@@ -17,4 +17,8 @@ public interface IPostService {
 
     public boolean isExistById(Long id);
 
+    public void deleteById(Long id);
+
+    public void delete(Post post);
+
 }

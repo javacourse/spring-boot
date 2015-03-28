@@ -13,6 +13,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.lang.invoke.MethodType;
 import java.util.Date;
 
 /**
@@ -20,7 +21,7 @@ import java.util.Date;
  */
 
 @Controller
-@RequestMapping(value = "post")
+@RequestMapping(value = "/post")
 public class PostController {
 
     @Autowired
@@ -57,7 +58,7 @@ public class PostController {
         return modelAndView;
     }
 
-    @RequestMapping(value = {"add", "edit"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/add", "/edit"}, method = RequestMethod.POST)
     public String savePost(/*@ModelAttribute(value = "post") Post post,*/
                             @RequestParam("topic") String topic,
                             @RequestParam("text") String text,
@@ -81,6 +82,20 @@ public class PostController {
         post.setText(text.trim());
 
         postService.saveOrUpdate(post);
+
+        return "redirect:/blog";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deletePost(@RequestParam(value = "id") Long id) {
+
+        System.out.println(id);
+       // postService.deleteById(id);
+
+        Post post = postService.getById(id);
+        System.out.println(post.toString());
+
+        postService.delete(post);
 
         return "redirect:/blog";
     }

@@ -31,7 +31,7 @@ public class User implements Serializable {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @OneToMany(targetEntity = Post.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+    @OneToMany(targetEntity = Post.class, cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "user")
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Post> posts;
 

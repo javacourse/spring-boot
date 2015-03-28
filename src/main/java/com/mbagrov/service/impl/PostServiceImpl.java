@@ -36,4 +36,14 @@ public class PostServiceImpl implements IPostService {
     public boolean isExistById(Long id) {
         return postRepository.isExistById(id);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        postRepository.deleteById(id);
+    }
+
+    @Override
+    public void delete(Post post) {
+        postRepository.delete(post);
+    }
 }

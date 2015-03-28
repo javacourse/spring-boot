@@ -1,9 +1,11 @@
 package com.mbagrov.dto;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -27,7 +29,7 @@ public class Post implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @ManyToOne(targetEntity = User.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = User.class, cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -35,7 +37,6 @@ public class Post implements Serializable {
     private String topic;
 
     public Post() {
-
     }
 
     public String getTopic() {
