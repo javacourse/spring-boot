@@ -47,9 +47,11 @@ public class PostController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public ModelAndView editPost(@RequestParam(value = "id") Long postId) {
+    public ModelAndView editPost(@RequestParam(value = "id") Long postId) throws Exception {
 
         logger.debug("Received request to edit post");
+
+        if (postId == null) throw new Exception();
 
         Post post = postService.getById(postId);
         ModelAndView modelAndView = new ModelAndView("post_add");
@@ -87,7 +89,9 @@ public class PostController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String deletePost(@RequestParam(value = "id") Long id) {
+    public String deletePost(@RequestParam(value = "id") Long id) throws Exception {
+
+        if (id == null) throw new Exception();
 
         postService.deleteById(id);
 

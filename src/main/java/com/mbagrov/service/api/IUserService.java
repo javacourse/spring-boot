@@ -13,7 +13,7 @@ public interface IUserService {
 
     public void saveOrUpdate(User user);
 
-    public User getById(Long id);
+    public User getById(Long id) throws Exception;
 
     public User getByUsername(String username) throws Exception;
 }

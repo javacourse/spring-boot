@@ -27,7 +27,9 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User getById(Long id) {
+    public User getById(Long id) throws Exception {
+        if (!userRepository.isExistById(id)) throw new Exception();
+
         return userRepository.getById(id);
     }
 

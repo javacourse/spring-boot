@@ -28,7 +28,9 @@ public class PostServiceImpl implements IPostService {
     }
 
     @Override
-    public Post getById(Long id) {
+    public Post getById(Long id) throws Exception {
+        if (!postRepository.isExistById(id)) throw new Exception();
+
         return postRepository.getById(id);
     }
 
@@ -38,12 +40,16 @@ public class PostServiceImpl implements IPostService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(Long id) throws Exception {
+        if (!postRepository.isExistById(id)) throw new Exception();
+
         postRepository.deleteById(id);
     }
 
     @Override
-    public void delete(Post post) {
+    public void delete(Post post) throws Exception {
+        if (!postRepository.isExist(post)) throw new Exception();
+
         postRepository.delete(post);
     }
 }

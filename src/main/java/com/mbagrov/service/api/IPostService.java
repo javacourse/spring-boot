@@ -13,12 +13,12 @@ public interface IPostService {
 
     public void saveOrUpdate(Post post);
 
-    public Post getById(Long id);
+    public Post getById(Long id) throws Exception;
 
     public boolean isExistById(Long id);
 
-    public void deleteById(Long id);
+    public void deleteById(Long id) throws Exception;
 
-    public void delete(Post post);
+    public void delete(Post post) throws Exception;
 
 }
