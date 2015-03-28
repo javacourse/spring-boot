@@ -1,24 +1,25 @@
 <div xmlns:th="http://www.thymeleaf.org">
-    <form th:action="@{/post/add}" method="post" th:object="${post}">
+    <form th:action="@{/post/add}" method="post"> <!--th:object="${post}">-->
     <table>
         <tr>
             <td>
                 Topic:
             </td>
             <td>
-                <input type="text" name="topic" size="18"/>
+                <input type="text" size="18" name="topic" th:value="${post.topic}"/><!--th:field="*{topic}" />-->
             </td>
         </tr>
         <tr>
 
             <td colspan="2">
-                <textarea name="text" rows="10" cols="25">
+                <textarea rows="10" cols="25" name="text" th:text="${post.text}">
 
-                </textarea>
+                </textarea> <!--th:field="*{text}">-->
             </td>
         </tr>
         <tr>
             <td colspan="2">
+                <input type="hidden" name="id" th:value="${post.id}"/><!--th:field="*{id}"/>-->
                 <input type="submit"/>
             </td>
         </tr>

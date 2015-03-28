@@ -26,4 +26,14 @@ public class PostServiceImpl implements IPostService {
     public void saveOrUpdate(Post post) {
         postRepository.saveOrUpdate(post);
     }
+
+    @Override
+    public Post getById(Long id) {
+        return postRepository.getById(id);
+    }
+
+    @Override
+    public boolean isExistById(Long id) {
+        return postRepository.isExistById(id);
+    }
 }

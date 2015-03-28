@@ -19,19 +19,25 @@
 
         <div id="content">
 
-            <!--<div th:if="${posts.size() != 0}">-->
+            <div th:if="${posts.size() != 0}">
 
                 <div th:each="post : ${posts}" class="post">
                     <span th:text = "${post.date}"></span>
-                    <span th:text = "${post.user.getUsername()}"> </span><br/>
+                    User: <span th:text = "${post.user.getUsername()}"> </span><br/>
                     <span th:text = "${post.topic}"></span> <br/><br/>
                     <span th:text = "${post.text}"></span> <br/>
+
+                    <span th:if = "${#httpServletRequest.isUserInRole('ROLE_ADMIN')}">
+                        <a  th:href="@{/post/edit(id = ${post.id})}">Edit</a>
+                        <a  th:href="@{/post/delete(id = ${post.id})}">Delete</a>
+                    </span>
+
                 </div>
 
             </div>
 
             <!-- <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>-->
-        <!--</div>-->
+        </div>
 
         <div th:include="standard/footer">
         </div>

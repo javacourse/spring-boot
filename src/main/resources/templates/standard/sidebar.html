@@ -7,7 +7,7 @@
     <li>
         <a th:href="@{/blog}">Blog</a>
     </li>
-    <li>
+    <li th:if="${#httpServletRequest.isUserInRole('ROLE_USER') || #httpServletRequest.isUserInRole('ROLE_ADMIN')}">
         <a th:href="@{/post/add}">Add post</a>
     </li>
 
