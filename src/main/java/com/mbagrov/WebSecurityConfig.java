@@ -67,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/blog/**").authenticated()
                     .antMatchers("/post/**").authenticated()
-                    .antMatchers("/**/edit", "/**/delete").hasRole("ADMIN")
+                    .antMatchers("/**/edit/**", "/**/delete/**").hasRole("ADMIN")
                     .anyRequest().permitAll();
 
     }
