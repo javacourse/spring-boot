@@ -20,7 +20,7 @@ public class UserJPARepository extends AbstractJPARepository<User, Long> impleme
 
         List<User> users = executeQuery(query);
 
-        if (users.size() > 1) throw new Exception();
+        if (users.size() != 1) throw new Exception();
 
         return users.iterator().next();
     }
