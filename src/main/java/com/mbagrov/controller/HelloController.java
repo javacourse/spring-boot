@@ -42,7 +42,7 @@ public class HelloController {
     }
 
     @RequestMapping(value = "/blog", method = RequestMethod.GET)
-    public ModelAndView hello2() {
+    public ModelAndView showBlog() {
         logger.debug("Received request to show secret page");
 
         Iterable posts = postService.findAll();
